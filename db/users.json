@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "username": "mikko",
+      "password": "mikko"
+    },
+    {
+      "username": "janne",
+      "password": "janne"
+    }
+  ],
+  "notes": [
+    {
+      "username": "mikko",
+      "note": "test note 1"
+    },
+    {
+      "username": "mikko",
+      "note": "test note 2"
+    },
+    {
+      "username": "janne",
+      "note": "janne note"
+    }
+  ]
+}
