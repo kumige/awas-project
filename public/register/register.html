@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Login</title>
+  <title>Register</title>
 
   <link rel="stylesheet" href="../css/normalize.css"> 
   <link rel="stylesheet" href="../css/bootstrap.css"> 
@@ -15,11 +15,10 @@
     <form id="loginForm" onsubmit="formSubmit(event)">
         <input id="usernameInput" placeholder="Username"></input>
         <input id="passwordInput" placeholder="Password"></input>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary" onclick="register(event)">Register</button>
         <span id="errorMsg"></span>
     </form>
-    <button class="btn btn-primary" onclick="redirectToRegister()">Register</button>
 
 
-  <script src="login.js"></script>
+  <script src="register.js"></script>
 </body>

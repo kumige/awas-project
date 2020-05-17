@@ -43,3 +43,7 @@ const handleErrors = (reason) => {
 
     errorMsg.innerText = reason
 }
+
+const redirectToRegister = () => {
+  window.location.href = 'http://localhost:3000/register'
+}
