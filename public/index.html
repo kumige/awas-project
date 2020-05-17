@@ -5,13 +5,32 @@
   <meta charset="utf-8">
   <title>Home</title>
 
-  <link rel="stylesheet" href="../css/normalize.css"> 
-  <link rel="stylesheet" href="../css/bootstrap.css"> 
+  <link rel="stylesheet" href="../css/normalize.css" />
+  <link rel="stylesheet" href="../css/bootstrap.css" />
+  <link rel="stylesheet" href="../css/common.css" /> 
+  <link rel="stylesheet" href="./index.css" /> 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
 </head>
 
 <body>
-    <p>heouahfa</p>
-    <button onclick="redirectToLogin()">Login</button>
+    <h1>Note app</h1>
+    <h3>This is a totally safe and secure note app.</h3>
+    <ul class="list-group list-group-flush list">
+      <li class="list-group-item liText">
+        <span class="material-icons">description</span>
+        <span class="liText">Keep your thoughts organized!</span>
+      </li>
+      <li class="list-group-item liText">
+        <span class="material-icons">description</span>
+        <span class="liText">Keep track of important things!</span>
+      </li>
+      <li class="list-group-item liText">
+        <span class="material-icons">description</span>
+        <span class="liText">Your notes are safe with us.</span>
+      </li>
+    </ul>
+    <button class="btn btn-primary" onclick="redirectToLogin()">Click here to log in!</button>
   <script src="index.js"></script>
 </body>

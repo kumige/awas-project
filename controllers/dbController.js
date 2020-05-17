@@ -13,28 +13,14 @@ const registerUser = async (userData) => {
       password: userData.password.toString(),
     };
 
-    const lengthBeforePrepend = db.users.length;
+    //const lengthBeforePrepend = db.users.length;
     db.users.push(userObj);
 
-    const p = new Promise((resolve, reject) => {
-        fs.writeFile(
-            path.join(__dirname, "../db/users.json"),
-            JSON.stringify(db, null, 2),
-            (err) => {
-              if (lengthBeforePrepend < db.users.length && err == null) {
-                console.log("register succesful");
-                dbSaveSuccess = true;
-                resolve(true)
-              } else {
-                console.log(err);
-                reject(err)
-              }
-            }
-          );
-    })
+    // Write to json db
+    const promise = writeToDB()
     
-    return p.then(result => {
-        console.log("returning " + result);
+    return promise.then(result => {
+        console.log("register success: " + result);
         return result;
     })
     
@@ -44,6 +30,25 @@ const registerUser = async (userData) => {
     return dbSaveSuccess;
   }
 };
+
+const writeToDB = () => {
+    return p = new Promise((resolve, reject) => {
+        fs.writeFile(
+            path.join(__dirname, "../db/users.json"),
+            JSON.stringify(db, null, 2),
+            (err) => {
+            // if (lengthBeforePrepend < db.users.length && err == null) {
+              if (err == null) {
+                dbSaveSuccess = true;
+                resolve(true)
+              } else {
+                console.log(err);
+                reject(err)
+              }
+            }
+          );
+    })
+}
 
 module.exports = {
   registerUser,

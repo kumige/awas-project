@@ -8,16 +8,27 @@
 
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="./notes.css" />
+
   </head>
 
   <body>
-    <h1>My notes</h1>
-    <div id="content"></div>
+    <div id="toolbar">
+      <button class="btn btn-primary logoutBtn" onclick="logOut(event)">Log out</button>
+    </div>
+    <div id="container">
+      <h1>My notes</h1>
 
-    <form id="noteForm" onsubmit="formSubmit(event)">
-      <textarea id="textArea" rows="4" cols="50"></textarea>
-      <button type="submit">Submit</button>
-    </form>
+      <form id="noteForm" class="input-group" onsubmit="formSubmit(event)">
+        <textarea id="textArea" rows="4" cols="50"></textarea>
+        <button class="btn btn-primary submitButton" type="submit">Create note</button>
+      </form>
+
+      <div id="content"></div>
+    </div>
+
+    
 
     <script src="notes.js"></script>
   </body>

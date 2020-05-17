@@ -6,19 +6,26 @@
 
   <title>Login</title>
 
-  <link rel="stylesheet" href="../css/normalize.css"> 
-  <link rel="stylesheet" href="../css/bootstrap.css"> 
+  <link rel="stylesheet" href="../css/normalize.css" />
+  <link rel="stylesheet" href="../css/bootstrap.css" />
+  <link rel="stylesheet" href="../css/common.css" /> 
+  <link rel="stylesheet" href="./login.css" /> 
 
 </head>
 
 <body>
-    <form id="loginForm" onsubmit="formSubmit(event)">
-        <input id="usernameInput" placeholder="Username"></input>
-        <input id="passwordInput" placeholder="Password"></input>
+    <div id="container">
+      <h1>Log in</h1>
+      <form id="loginForm" onsubmit="formSubmit(event)">
+        <input id="usernameInput" class="form-control" placeholder="Username"></input>
+        <input id="passwordInput" class="form-control" type="password" placeholder="Password"></input>
+        <span id="errorMsg" class="text-danger"></span>
         <button type="submit" class="btn btn-primary">Login</button>
-        <span id="errorMsg"></span>
     </form>
-    <button class="btn btn-primary" onclick="redirectToRegister()">Register</button>
+    <button class="btn btn-primary registerBtn" onclick="redirectToRegister()">Register</button>
+
+    </div>
+    
 
 
   <script src="login.js"></script>

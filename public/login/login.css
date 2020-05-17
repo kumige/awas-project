@@ -1,0 +1,25 @@
+#container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginForm {
+    width: 300px;
+}
+
+#usernameInput, #passwordInput {
+    margin-top: 8px;
+}
+
+.btn {
+    margin-top: 8px;
+    width: 100%;
+}
+
+.registerBtn {
+    max-width: 300px;
+}

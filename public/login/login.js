@@ -8,17 +8,23 @@ const formSubmit = (e) => {
   e.preventDefault();
   errorMsg.innerText = ""
 
-  postData(apiUrl, {
-    username: usernameInput.value,
-    password: passwordInput.value,
-  }).then((res) => {
-    if(res.status == 'error') {
-        handleErrors(res.reason)
-    } else {
-        localStorage.setItem('token', res.token)
-        window.location.href = 'http://localhost:3000/notes'
-    }
-  });
+  if(usernameInput.value.length != 0 && passwordInput.value.length != 0){
+    postData(apiUrl, {
+      username: usernameInput.value,
+      password: passwordInput.value,
+    }).then((res) => {
+      if(res.status == 'error') {
+          handleErrors(res.reason)
+      } else {
+          localStorage.setItem('token', res.token)
+          window.location.href = 'http://localhost:3000/notes'
+      }
+    });
+  } else {
+    errorMsg.innerText = "Username and password must not be empty"
+  }
+
+  
 };
 
 const postData = async (url, data) => {
