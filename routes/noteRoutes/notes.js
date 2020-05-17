@@ -25,6 +25,14 @@ router.get(
   }
 );
 
+router.post(
+  "/setnotes",
+  authController.passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    console.log("route works");
+  }
+);
+
 /*
 router.post("/", (req, res) => {
   
