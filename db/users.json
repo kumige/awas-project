@@ -2,31 +2,43 @@
   "users": [
     {
       "username": "mikko",
-      "password": "mikko"
+      "password": "mikko",
+      "admin": false
     },
     {
       "username": "janne",
-      "password": "janne"
+      "password": "janne",
+      "admin": true
     },
     {
       "username": "qwd",
-      "password": "dwq"
+      "password": "dwq",
+      "admin": false
     },
     {
       "username": "asd",
-      "password": "asd"
+      "password": "asd",
+      "admin": false
     },
     {
       "username": "asdddd",
-      "password": "asd"
+      "password": "asd",
+      "admin": false
     },
     {
       "username": "aasi",
-      "password": "paavo"
+      "password": "paavo",
+      "admin": false
     },
     {
       "username": "mikko123",
-      "password": "mikko"
+      "password": "mikko",
+      "admin": false
+    },
+    {
+      "username": "test",
+      "password": "test",
+      "admin": false
     }
   ],
   "notes": [
@@ -41,6 +53,10 @@
     {
       "username": "janne",
       "note": "janne note"
+    },
+    {
+      "username": "janne",
+      "note": "ads"
     }
   ]
 }

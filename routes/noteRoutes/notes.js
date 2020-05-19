@@ -3,6 +3,7 @@ var router = express.Router();
 const path = require("path");
 const db = require(path.resolve("db/users.json"));
 const authController = require("../../controllers/authController");
+const dbController = require("../../controllers/dbController");
 
 // frontend
 router.get("/", (req, res) => {
@@ -30,8 +31,25 @@ router.post(
   authController.passport.authenticate("jwt", { session: false }),
   (req, res) => {
     console.log("route works");
+    console.log(req.body.notes);
+    // !!!!!!!!!!!!!!!!!!! CHECK IF HAS ONLY SPACES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    if (req.body.notes !== null && req.body.notes !== "") {
+      console.log("note not null");
+      dbController.addNote(req.body.notes, req.user);
+    } else {
+      errorHandler(res, "Note can not be empty");
+    }
   }
 );
+
+const errorHandler = (res, reason) => {
+  res.send(`
+    {
+        "status": "error",
+        "reason": "${reason}"
+    }
+    `);
+};
 
 /*
 router.post("/", (req, res) => {

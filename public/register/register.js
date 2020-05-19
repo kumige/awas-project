@@ -10,6 +10,7 @@ const register = (e) => {
     const userData = {
       username: usernameInput.value,
       password: passwordInput.value,
+      admin: false,
     };
 
     const req = postData(registerUrl, userData);

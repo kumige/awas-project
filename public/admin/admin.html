@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/bootstrap.css" />
     <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="./notes.css" />
+    <link rel="stylesheet" href="./admin.css" />
   </head>
 
   <body>
@@ -19,17 +19,11 @@
       </button>
     </div>
     <div id="container">
-      <h1>My notes</h1>
-
-      <!-- prettier-ignore -->
-      <form id="noteForm" class="input-group" name="noteForm" onsubmit="formSubmit(event)">
-        <textarea id="textArea" rows="4" cols="50" name="note"></textarea>
-        <button class="btn btn-primary submitButton" type="submit">Create note</button>
-      </form>
-
+      <h1>Admin panel</h1>
+      <h2>All notes</h2>
       <div id="content"></div>
     </div>
 
-    <script src="notes.js"></script>
+    <script src="admin.js"></script>
   </body>
 </html>

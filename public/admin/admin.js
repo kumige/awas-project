@@ -4,26 +4,16 @@ const apiUrl = "http://localhost:3000";
 
 let noteData;
 
-const formSubmit = (e) => {
-  e.preventDefault();
-  var note = document.forms["noteForm"]["note"].value;
-  console.log(note);
-  postData(`${apiUrl}/notes/setnotes`, { notes: note }).then((res) => {
-    console.log(res);
-  });
-};
-
 const loadData = () => {
   var dataElement = document.getElementById("content");
 
-  getData(`${apiUrl}/notes/getnotes`).then((data) => {
-    console.log("data", data);
+  getData(`${apiUrl}/admin/getnotes`).then((data) => {
     if (data == "Unauthorized") {
-      window.location.href = "http://localhost:3000";
+      window.location.href = "http://localhost:3000/notes";
     } else {
       var response = JSON.parse(data);
       response.forEach((item) => {
-        createNote(item.note, dataElement);
+        createNote(item, dataElement);
       });
       if (response.length > 0) {
         const loggedInAs = document.createElement("span");
@@ -36,12 +26,16 @@ const loadData = () => {
 
 const createNote = (note, parent) => {
   const div = document.createElement("div");
+  const p1 = document.createElement("p");
   const p = document.createElement("p");
-  p.innerHTML = note;
+  p.innerHTML = note.note;
+  p1.innerHTML = note.username;
 
   div.setAttribute("class", "note");
   p.setAttribute("class", "noteText");
+  p1.setAttribute("style", "font-weight: bold;");
 
+  div.appendChild(p1);
   div.appendChild(p);
 
   parent.append(div);
@@ -62,24 +56,6 @@ async function getData(apiUrl) {
   });
   return response.text(); // parses JSON response into native JavaScript objects
 }
-
-const postData = async (url, data) => {
-  const response = await fetch(url, {
-    method: "POST",
-    mode: "cors",
-    cache: "no-cache",
-    credentials: "same-origin",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-    redirect: "follow",
-    referrerPolicy: "no-referrer",
-    body: JSON.stringify(data),
-  });
-
-  return response.json();
-};
 
 const logOut = (e) => {
   e.preventDefault();
