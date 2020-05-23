@@ -45,8 +45,6 @@ const postData = async (url, data) => {
 };
 
 const handleErrors = (reason) => {
-    console.log("handle error")
-
     errorMsg.innerText = reason
 }
 

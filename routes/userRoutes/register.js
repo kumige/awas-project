@@ -16,7 +16,6 @@ router.post(
       if(req.body.username != null && req.body.password != null) {
         const dbResponse = dbController.registerUser(req.body)
         dbResponse.then(data => {
-            console.log("db res", data)
             if(data === true) {
                 res.send(JSON.stringify(data));
             } else {

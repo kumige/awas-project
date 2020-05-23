@@ -15,7 +15,6 @@ const register = (e) => {
 
     const req = postData(registerUrl, userData);
     req.then((res) => {
-      console.log(res);
       if (res == true) {
         window.location.href = "http://localhost:3000/login";
       } else {

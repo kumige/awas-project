@@ -4,7 +4,6 @@ const fs = require("fs");
 let dbSaveSuccess = false;
 
 const registerUser = async (userData) => {
-  console.log(userData);
   const userFilter = db.users.filter((x) => x.username === userData.username);
 
   // Check if username exists
@@ -22,12 +21,10 @@ const registerUser = async (userData) => {
     const promise = writeToDB();
 
     return promise.then((result) => {
-      console.log("register success: " + result);
       return result;
     });
   } else {
     dbSaveSuccess = false;
-    console.log("user exists, returning " + dbSaveSuccess);
     return dbSaveSuccess;
   }
 };
@@ -38,7 +35,6 @@ const addNote = async (note, user) => {
   const promise = writeToDB();
 
   return promise.then((result) => {
-    console.log("note add success: " + result);
     return result;
   });
 };

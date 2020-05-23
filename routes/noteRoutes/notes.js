@@ -14,7 +14,6 @@ router.get(
   "/getnotes",
   authController.passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    //console.log('req.user', req.user)
 
     let noteArray = [];
     db.notes.forEach((note) => {
@@ -30,11 +29,9 @@ router.post(
   "/setnotes",
   authController.passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log("route works");
-    console.log(req.body.notes);
+
     // !!!!!!!!!!!!!!!!!!! CHECK IF HAS ONLY SPACES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     if (req.body.notes !== null && req.body.notes !== "") {
-      console.log("note not null");
       dbController.addNote(req.body.notes, req.user);
     } else {
       errorHandler(res, "Note can not be empty");

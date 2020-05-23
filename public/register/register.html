@@ -15,9 +15,10 @@
 
 <body>
     <div id="container">
+      <h1>Register</h1>
       <form id="loginForm" onsubmit="formSubmit(event)">
         <input id="usernameInput" placeholder="Username" class="form-control"></input>
-        <input id="passwordInput" placeholder="Password" class="form-control"></input>
+        <input id="passwordInput" placeholder="Password" type="password" class="form-control"></input>
         <button type="submit" class="btn btn-primary" onclick="register(event)">Register</button>
         <span id="errorMsg" class="text-danger"></span>
     </form>

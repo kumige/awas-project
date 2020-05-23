@@ -14,9 +14,7 @@ router.get(
   authController.passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const currentUser = db.users.filter((x) => x.username === req.user);
-    console.log(currentUser[0].admin);
     if (currentUser[0].admin) {
-      //console.log('req.user', req.user)
       res.send(JSON.stringify(db.notes));
     } else {
       res.send("Unauthorized");

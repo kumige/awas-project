@@ -7,9 +7,7 @@ let noteData;
 const formSubmit = (e) => {
   e.preventDefault();
   var note = document.forms["noteForm"]["note"].value;
-  console.log(note);
   postData(`${apiUrl}/notes/setnotes`, { notes: note }).then((res) => {
-    console.log(res);
   });
 };
 
@@ -17,7 +15,6 @@ const loadData = () => {
   var dataElement = document.getElementById("content");
 
   getData(`${apiUrl}/notes/getnotes`).then((data) => {
-    console.log("data", data);
     if (data == "Unauthorized") {
       window.location.href = "http://localhost:3000";
     } else {
@@ -37,7 +34,7 @@ const loadData = () => {
 const createNote = (note, parent) => {
   const div = document.createElement("div");
   const p = document.createElement("p");
-  p.innerHTML = note;
+  p.innerText = note;
 
   div.setAttribute("class", "note");
   p.setAttribute("class", "noteText");

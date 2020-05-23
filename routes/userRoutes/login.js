@@ -13,8 +13,6 @@ router.post(
   "/",
   authController.passport.authenticate("local"),
   (req, res) => {
-      console.log(req.user.error)
-
       if(req.user.error != undefined) {
         errorHandler(res, req.user.error)
       } else {
